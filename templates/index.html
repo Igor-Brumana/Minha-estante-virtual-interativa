@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block title %}Minha Estante Virtual{% endblock %}
+
+{% block content %}
+      <h1 class="titulo">Estante Virtual</h1>
+<div class="story-list-container">
+    {% for book in books %}
+        <a href="{{ url_for('book_details', book_id=book.id) }}" class="book-card-link">
+    <div class="book-card">
+        </div>
+</a>
+  <div class="book-card">
+    <img src="{{ book.image_url }}" alt="Poster for {{ book.title }}" />
+
+    <h3>{{ book.title }}</h3>
+
+    <div class="rating">
+    {% for i in range(5) %}
+    
+        {% if (i + 1) <= (book.stars|int) %}
+          <span>★</span>
+        {% else %}
+          <span class="star-empty">★</span>
+        {% endif %}
+
+    {% endfor %}
+</div>
+  </div>
+</a>
+    {% endfor %}  
+</div>
+
+{% endblock %}

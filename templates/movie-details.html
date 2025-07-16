@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ movie.title }} - My Movie Library{% endblock %}
+
+{% block content %}
+
+<h1 class="titulo">book.title</h1>
+        <div class="book-info">
+        <img src="{{ book.image_url }}" alt="{{ book.title }} poster" class="details_poster">
+        <span class="detalhes">
+            <h3 class="space">Descrição:</h3>
+            <p>{{ movie.review }}</p>
+            <h3 class="space">Avaliação:</h3>
+            <div class="rating">
+                    {% for i in range(5) %} {% if (i + 1) <= (book.stars|int) %}
+                    <span>★</span>
+                    {% else %}
+                    <span class="star-empty">★</span>
+                    {% endif %} {% endfor %}
+                </div>
+
+
+        </span>
+        </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+    <main>
+        
+
+    </main>
